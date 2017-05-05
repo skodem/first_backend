@@ -1,0 +1,11 @@
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|eot|svg|ttf|woff|zip|rar|doc|xls|js|tif|tiff|docx|xlsx|ico)$|test\.php$
+	RewriteRule ^(.*)$ $1 [L,QSA]
+Options All -Indexes
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^resource/(.*)$ resource/$1 [L]
+RewriteRule ^.*$ [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
